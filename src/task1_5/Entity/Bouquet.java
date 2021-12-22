@@ -1,14 +1,16 @@
 package task1_5.Entity;
 
+import java.util.Objects;
+
 public class Bouquet {
     private String title;
-    private Flowers flowers;
-    private Pack pack;
+    private BoxFlowers boxFlowers;
+    private BoxPack boxPack;
 
-    public Bouquet(String title, Flowers flowers, Pack pack) {
+    public Bouquet(String title, BoxFlowers boxFlowers, BoxPack boxPack) {
         this.title = title;
-        this.flowers = flowers;
-        this.pack = pack;
+        this.boxFlowers = boxFlowers;
+        this.boxPack = boxPack;
     }
 
     public String getTitle() {
@@ -19,28 +21,41 @@ public class Bouquet {
         this.title = title;
     }
 
-    public Flowers getFlowers() {
-        return flowers;
+    public BoxFlowers getBoxFlowers() {
+        return boxFlowers;
     }
 
-    public void setFlowers(Flowers flowers) {
-        this.flowers = flowers;
+    public void setBoxFlowers(BoxFlowers boxFlowers) {
+        this.boxFlowers = boxFlowers;
     }
 
-    public Pack getPack() {
-        return pack;
+    public BoxPack getBoxPack() {
+        return boxPack;
     }
 
-    public void setPack(Pack pack) {
-        this.pack = pack;
+    public void setBoxPack(BoxPack boxPack) {
+        this.boxPack = boxPack;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bouquet bouquet = (Bouquet) o;
+        return Objects.equals(title, bouquet.title) && Objects.equals(boxFlowers, bouquet.boxFlowers) && Objects.equals(boxPack, bouquet.boxPack);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, boxFlowers, boxPack);
     }
 
     @Override
     public String toString() {
-        return "" +
-                " Название букета - " + "(" + title + ")" + '\'' +
-                "Цветы - " + flowers +
-                " Упаковка" + pack
-                ;
+        return "Bouquet{" +
+                "title='" + title + '\'' +
+                ", boxFlowers=" + boxFlowers +
+                ", boxPack=" + boxPack +
+                '}';
     }
 }

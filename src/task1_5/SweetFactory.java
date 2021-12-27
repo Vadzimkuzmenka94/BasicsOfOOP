@@ -7,9 +7,10 @@ public class SweetFactory {
     public Sweet getSweet(SweetTypes type) {
         Sweet toReturn = null;
         switch (type) {
-            case CANDY -> toReturn = new Candy();
+
+        /*    //case CANDY -> toReturn = new Candy();
             case CHOCOLATE -> toReturn = new Chocolate();
-            case MARMALADE -> toReturn = new Marmalade();
+            case MARMALADE -> toReturn = new Marmalade();*/
         }
         return toReturn;
     }
